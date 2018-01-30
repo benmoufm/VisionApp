@@ -51,10 +51,27 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             previewLayer.videoGravity = .resizeAspect
             previewLayer.connection?.videoOrientation = .portrait
             cameraView.layer.addSublayer(previewLayer!)
+            addTapGesture()
             captureSession.startRunning()
         } catch {
             debugPrint(error as Any)
         }
+    }
+
+    func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapCameraView))
+        tap.numberOfTapsRequired = 1
+        cameraView.addGestureRecognizer(tap)
+    }
+
+    @objc func didTapCameraView() {
+        let settings = AVCapturePhotoSettings()
+        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
+        let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
+                             kCVPixelBufferWidthKey as String: 160,
+                             kCVPixelBufferHeightKey as String: 160]
+        settings.previewPhotoFormat = previewFormat
+        cameraOutput.capturePhoto(with: settings, delegate: self)
     }
 
     //MARK: - AVCapturePhotoCaptureDelegate
