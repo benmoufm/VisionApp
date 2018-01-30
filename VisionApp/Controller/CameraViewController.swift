@@ -37,6 +37,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
         speechSynthesizer.delegate = self
+        activityIndicator.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
     }
 
     @objc func didTapCameraView() {
+        cameraView.isUserInteractionEnabled = false
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
         let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
@@ -132,6 +136,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
     }
 
     //MARK: - AVSpeechSynthesizerDelegate
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        cameraView.isUserInteractionEnabled = true
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+    }
 
     //MARK: - Actions
     @IBAction func flashButtonPressed(_ sender: Any) {
