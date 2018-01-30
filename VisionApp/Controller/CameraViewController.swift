@@ -11,7 +11,7 @@ import AVFoundation
 import CoreML
 import Vision
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVSpeechSynthesizerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var roundedLabelView: RoundedShadowView!
@@ -26,6 +26,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
     var flashControlState: FlashState = .off
+    var speechSynthesizer = AVSpeechSynthesizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         previewLayer.frame = cameraView.bounds
+        speechSynthesizer.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +61,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         } catch {
             debugPrint(error as Any)
         }
+    }
+
+    func synthesizeSpeech(forString string: String) {
+        let speechUtterance = AVSpeechUtterance(string: string)
+        speechSynthesizer.speak(speechUtterance)
     }
 
     func addTapGesture() {
@@ -87,12 +94,18 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         guard let results = request.results as? [VNClassificationObservation] else { return }
         for classification in results {
             if classification.confidence < 0.5 {
-                identificationLabel.text = "I'm not sure what this is. Please try again."
+                let unknownObjectMessage = "I'm not sure what this is. Please try again."
+                synthesizeSpeech(forString: unknownObjectMessage)
+                identificationLabel.text = unknownObjectMessage
                 confidenceLabel.text = ""
                 break
             } else {
-                identificationLabel.text = classification.identifier
-                confidenceLabel.text = "CONFIDENCE : \(Int(classification.confidence * 100))%"
+                let identification = classification.identifier
+                let confidence = Int(classification.confidence * 100)
+                identificationLabel.text = identification
+                confidenceLabel.text = "CONFIDENCE : \(confidence)%"
+                let completeSentence = "This looks like a \(identification) and I'm \(confidence) percent sure."
+                synthesizeSpeech(forString: completeSentence)
                 break
             }
         }
@@ -116,6 +129,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             capturedImageView.image = image
         }
     }
+
+    //MARK: - AVSpeechSynthesizerDelegate
 
     //MARK: - Actions
     @IBAction func flashButtonPressed(_ sender: Any) {
