@@ -25,6 +25,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var photoData: Data?
+    var flashControlState: FlashState = .off
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,12 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                              kCVPixelBufferWidthKey as String: 160,
                              kCVPixelBufferHeightKey as String: 160]
         settings.previewPhotoFormat = previewFormat
+        switch flashControlState {
+        case .off:
+            settings.flashMode = .off
+        case .on:
+            settings.flashMode = .on
+        }
         cameraOutput.capturePhoto(with: settings, delegate: self)
     }
 
@@ -107,6 +114,18 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             }
             let image = UIImage(data: photoData!)
             capturedImageView.image = image
+        }
+    }
+
+    //MARK: - Actions
+    @IBAction func flashButtonPressed(_ sender: Any) {
+        switch flashControlState {
+        case .off:
+            flashButton.setTitle("FLASH ON", for: .normal)
+            flashControlState = .on
+        case .on:
+            flashButton.setTitle("FLASH OFF", for: .normal)
+            flashControlState = .off
         }
     }
 }
