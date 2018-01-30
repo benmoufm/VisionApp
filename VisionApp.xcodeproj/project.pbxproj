@@ -16,6 +16,7 @@
 		862106072020730B0052045B /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862106062020730B0052045B /* RoundedShadowButton.swift */; };
 		862106092020738B0052045B /* RoundedShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862106082020738B0052045B /* RoundedShadowImageView.swift */; };
 		8621060B2020ACA40052045B /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8621060A2020ACA40052045B /* SqueezeNet.mlmodel */; };
+		8621060E2020B1610052045B /* FlashState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8621060D2020B1610052045B /* FlashState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		862106062020730B0052045B /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		862106082020738B0052045B /* RoundedShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowImageView.swift; sourceTree = "<group>"; };
 		8621060A2020ACA40052045B /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		8621060D2020B1610052045B /* FlashState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		862105EE20206C090052045B /* VisionApp */ = {
 			isa = PBXGroup;
 			children = (
+				8621060C2020B1490052045B /* Enumerations */,
 				8621060320206C480052045B /* Ressources */,
 				8621060220206C430052045B /* View */,
 				8621060120206C3B0052045B /* Controller */,
@@ -98,6 +101,14 @@
 				8621060A2020ACA40052045B /* SqueezeNet.mlmodel */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		8621060C2020B1490052045B /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				8621060D2020B1610052045B /* FlashState.swift */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8621060E2020B1610052045B /* FlashState.swift in Sources */,
 				862105F220206C090052045B /* CameraViewController.swift in Sources */,
 				8621060B2020ACA40052045B /* SqueezeNet.mlmodel in Sources */,
 				862105F020206C090052045B /* AppDelegate.swift in Sources */,
