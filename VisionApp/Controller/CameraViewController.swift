@@ -77,7 +77,18 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
 
     func resultsMethod(request: VNRequest, error: Error?) {
-        //TODO: - Handle changing the label text
+        guard let results = request.results as? [VNClassificationObservation] else { return }
+        for classification in results {
+            if classification.confidence < 0.5 {
+                identificationLabel.text = "I'm not sure what this is. Please try again."
+                confidenceLabel.text = ""
+                break
+            } else {
+                identificationLabel.text = classification.identifier
+                confidenceLabel.text = "CONFIDENCE : \(Int(classification.confidence * 100))%"
+                break
+            }
+        }
     }
 
     //MARK: - AVCapturePhotoCaptureDelegate
