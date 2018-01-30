@@ -70,7 +70,7 @@
                                             <color key="titleColor" red="0.84705882352941175" green="0.27843137254901962" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7IC-Jo-DtY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7IC-Jo-DtY" customClass="RoundedShadowImageView" customModule="VisionApp" customModuleProvider="target">
                                         <rect key="frame" x="265" y="497" width="90" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="BEs-SN-eG4"/>

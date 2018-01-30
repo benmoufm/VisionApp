@@ -14,6 +14,7 @@
 		862105FA20206C090052045B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862105F820206C090052045B /* LaunchScreen.storyboard */; };
 		86210605202070D90052045B /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86210604202070D90052045B /* RoundedShadowView.swift */; };
 		862106072020730B0052045B /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862106062020730B0052045B /* RoundedShadowButton.swift */; };
+		862106092020738B0052045B /* RoundedShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862106082020738B0052045B /* RoundedShadowImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		862105FB20206C090052045B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86210604202070D90052045B /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		862106062020730B0052045B /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
+		862106082020738B0052045B /* RoundedShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				86210604202070D90052045B /* RoundedShadowView.swift */,
 				862106062020730B0052045B /* RoundedShadowButton.swift */,
+				862106082020738B0052045B /* RoundedShadowImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				862105F020206C090052045B /* AppDelegate.swift in Sources */,
 				86210605202070D90052045B /* RoundedShadowView.swift in Sources */,
 				862106072020730B0052045B /* RoundedShadowButton.swift in Sources */,
+				862106092020738B0052045B /* RoundedShadowImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

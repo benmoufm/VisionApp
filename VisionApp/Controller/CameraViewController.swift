@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var roundedLabelView: RoundedShadowView!
     @IBOutlet weak var identificationLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
-    @IBOutlet weak var capturedImageView: UIImageView!
+    @IBOutlet weak var capturedImageView: RoundedShadowImageView!
     @IBOutlet weak var flashButton: RoundedShadowButton!
 
     override func viewDidLoad() {
