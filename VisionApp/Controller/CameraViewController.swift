@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     //MARK: - Outlets
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var roundedLabelView: RoundedShadowView!
@@ -22,6 +22,7 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var cameraOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var photoData: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,17 @@ class CameraViewController: UIViewController {
             captureSession.startRunning()
         } catch {
             debugPrint(error as Any)
+        }
+    }
+
+    //MARK: - AVCapturePhotoCaptureDelegate
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let error = error {
+            debugPrint(error)
+        } else {
+            photoData = photo.fileDataRepresentation()
+            let image = UIImage(data: photoData!)
+            capturedImageView.image = image
         }
     }
 }
