@@ -19,6 +19,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
     @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var capturedImageView: RoundedShadowImageView!
     @IBOutlet weak var flashButton: RoundedShadowButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     //MARK: - Variables
     var captureSession: AVCaptureSession!

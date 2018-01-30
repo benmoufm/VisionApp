@@ -105,6 +105,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="z8U-p7-DTX" id="6fA-ql-IpC"/>
                         <outlet property="cameraView" destination="XBz-8C-Xl8" id="Gie-cI-7lv"/>
                         <outlet property="capturedImageView" destination="7IC-Jo-DtY" id="qDA-B7-dgV"/>
                         <outlet property="confidenceLabel" destination="PKM-D7-9gz" id="dEr-Fx-N4I"/>
