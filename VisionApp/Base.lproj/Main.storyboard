@@ -99,6 +99,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="XBz-8C-Xl8" id="Gie-cI-7lv"/>
+                        <outlet property="capturedImageView" destination="7IC-Jo-DtY" id="qDA-B7-dgV"/>
+                        <outlet property="confidenceLabel" destination="PKM-D7-9gz" id="dEr-Fx-N4I"/>
+                        <outlet property="flashButton" destination="w07-iS-ZDD" id="cS8-mO-t0y"/>
+                        <outlet property="identificationLabel" destination="vi5-d7-Rdd" id="FQI-D3-m8J"/>
+                        <outlet property="roundedLabelView" destination="F7S-n2-dUa" id="RAj-z4-AW4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
