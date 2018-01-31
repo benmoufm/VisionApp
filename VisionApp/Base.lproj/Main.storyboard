@@ -70,6 +70,9 @@
                                 <state key="normal" title="FLASH OFF">
                                     <color key="titleColor" red="0.84705882352941175" green="0.27843137254901962" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="flashButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qNB-Tr-VtC"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7IC-Jo-DtY" customClass="RoundedShadowImageView" customModule="VisionApp" customModuleProvider="target">
                                 <rect key="frame" x="265" y="497" width="90" height="150"/>
@@ -78,15 +81,21 @@
                                     <constraint firstAttribute="width" constant="90" id="eYI-3b-mbY"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z8U-p7-DTX">
+                                <rect key="frame" x="300" y="562" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F7S-n2-dUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3MX-Ub-w63"/>
+                            <constraint firstItem="z8U-p7-DTX" firstAttribute="centerY" secondItem="7IC-Jo-DtY" secondAttribute="centerY" id="3xs-U7-1oj"/>
                             <constraint firstItem="F7S-n2-dUa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="8vL-jl-wez"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7IC-Jo-DtY" secondAttribute="bottom" constant="20" id="Bbi-7T-doR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7IC-Jo-DtY" secondAttribute="trailing" constant="20" id="Bxn-9P-dSr"/>
                             <constraint firstItem="XBz-8C-Xl8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OEA-Dm-pKf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F7S-n2-dUa" secondAttribute="trailing" constant="20" id="Wku-M1-9bv"/>
+                            <constraint firstItem="z8U-p7-DTX" firstAttribute="centerX" secondItem="7IC-Jo-DtY" secondAttribute="centerX" id="cts-a5-554"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w07-iS-ZDD" secondAttribute="bottom" constant="20" id="epS-2w-yEY"/>
                             <constraint firstItem="XBz-8C-Xl8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iKe-eB-oQt"/>
                             <constraint firstItem="XBz-8C-Xl8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iiz-UX-s2n"/>
@@ -96,6 +105,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="z8U-p7-DTX" id="6fA-ql-IpC"/>
                         <outlet property="cameraView" destination="XBz-8C-Xl8" id="Gie-cI-7lv"/>
                         <outlet property="capturedImageView" destination="7IC-Jo-DtY" id="qDA-B7-dgV"/>
                         <outlet property="confidenceLabel" destination="PKM-D7-9gz" id="dEr-Fx-N4I"/>
