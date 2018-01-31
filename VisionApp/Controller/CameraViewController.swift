@@ -100,7 +100,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
         for classification in results {
             if classification.confidence < 0.5 {
                 let unknownObjectMessage = "I'm not sure what this is. Please try again."
-                synthesizeSpeech(forString: unknownObjectMessage)
+                let unknownObjectMessageFR = "Je ne sais pas ce que c'est. Essayez encore."
+                synthesizeSpeech(forString: unknownObjectMessageFR)
                 identificationLabel.text = unknownObjectMessage
                 confidenceLabel.text = ""
                 break
@@ -109,8 +110,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVS
                 let confidence = Int(classification.confidence * 100)
                 identificationLabel.text = identification
                 confidenceLabel.text = "CONFIDENCE : \(confidence)%"
-                let completeSentence = "This looks like a \(identification) and I'm \(confidence) percent sure."
-                synthesizeSpeech(forString: completeSentence)
+                let completeSentenceFR = "Ça ressemble à un \(identification) et je suis sûr à \(confidence) pourcents."
+                synthesizeSpeech(forString: completeSentenceFR)
                 break
             }
         }
